@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from 'next/image';
 import { useState } from "react";
 
 const ProductCard = ({ product }) => {
@@ -39,11 +40,12 @@ const ProductCard = ({ product }) => {
           className="bg-white w-8 h-8 rounded-full flex items-center justify-center hover:text-red-500"
           onClick={() => setIsHeartClicked(!isHeartClicked)}
         >
-          <img
-            src={isHeartClicked ? heartFilled : heartUnfilled}
-            alt="Heart Icon"
-            className="w-6 h-6"
-          />
+        <Image
+  src={isHeartClicked ? heartFilled : heartUnfilled}
+  alt="Heart Icon"
+  width={24} // Corresponds to w-6
+  height={24} // Corresponds to h-6
+/>
         </button>
       </div>
 
@@ -87,7 +89,7 @@ const ProductCard = ({ product }) => {
             day
           </span>
           <Link
-            href={`/rent/${product.name
+            href={`/cars/${product.name
               .toLowerCase()
               .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric characters with "-"
               .replace(/^-+|-+$/g, "")}`} // Remove leading/trailing hyphens

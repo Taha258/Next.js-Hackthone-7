@@ -1,5 +1,6 @@
 import React from "react";
 import ProductCard from "../Products/ProductCard";
+import Link from "next/link";
 
 const RecommendedCars = () => {
   const products = [
@@ -84,25 +85,28 @@ const RecommendedCars = () => {
   ];
 
   return (
-    <div className="container max-w-[1600px] mx-auto flex flex-col mb-20">
-      <div className="flex mt-10 items-center font-bold justify-between px-5">
-        <h4 className="text-xl text-[#90A3BF] font-semibold">
-          Recommended Car
-        </h4>
-      </div>
-      {/* Responsive grid layout */}
-      <div className="grid mt-6 gap-6 px-5 sm:flex sm:flex-col sm:items-center md:grid md:grid-cols-2 lg:grid-cols-4">
-        {products.map((product, index) => (
-          <ProductCard key={index} product={product} />
-        ))}
-      </div>
-      <div className="flex items-center">
-        <button className="bg-[#3563E9] hover:bg-[#54A6FF] w-40 mt-20 py-3 mx-auto text-white text-center rounded-[5px]">
-          Show more car
-        </button>
-        <p className="text-end text-[#90A3BF] mt-20 sm:hidden">120 Car</p>
-      </div>
-    </div>
+    <div className="container max-w-[1600px] mx-auto flex flex-col mb-20 ">
+  <div className="flex mt-10 items-center font-bold justify-between px-4 sm:px-2">
+    <h4 className="text-xl text-[#90A3BF] font-semibold">
+      Recommended Car
+    </h4>
+  </div>
+  {/* Responsive grid layout */}
+  <div className="grid mt-6 gap-6 px-5 sm:flex sm:flex-col sm:items-center md:grid md:grid-cols-2 md:place-items-center md:gap-x-1 xl:grid-cols-3 2xl:grid-cols-4">
+    {products.map((product, index) => (
+      <ProductCard key={index} product={product} />
+    ))}
+  </div>
+  <div className="flex flex-col sm:flex-row sm:justify-between items-center px-4 sm:px-2 mt-10">
+    <Link href={'/category'}>
+    <button className="bg-[#3563E9] hover:bg-[#54A6FF] w-40 py-3 text-white text-center rounded-[5px]">
+      Show more car
+    </button>
+    </Link>
+  </div>
+</div>
+
+  
   );
 };
 

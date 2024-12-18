@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 
 const jakartaSans = localFont({
@@ -32,7 +34,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${jakartaSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

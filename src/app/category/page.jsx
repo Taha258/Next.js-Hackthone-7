@@ -1,22 +1,32 @@
-import React from "react";
-import Header from "../components/Header/Header";
+'use client'
+import React, { useState } from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
 import PickUpDropOff from "../components/PickUpDropOff/PickUpDropOff";
 import CategoryCars from "../components/Cars/CategoryCars";
-import Footer from "../components/Footer/Footer";
+import ProductCard from "../components/Products/ProductCard";
 
 const CategoryCar = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
-      <div className="flex flex-1">
-        <Sidebar />
-        <div className="flex flex-col w-full md:pr-20">
+      <button
+        className="p-2 bg-blue-500 text-white md:hidden"
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+      >
+        Toggle Sidebar
+      </button>
+      <div className="flex">
+        <Sidebar className={`w-60 bg-gray-200 ${isSidebarOpen ? "block" : "hidden"} md:block`} />
+        <div className="flex flex-col w-full ">
           <PickUpDropOff />
-          <CategoryCars />
+
+          <div className="">
+           <CategoryCars />
+           {/* <ProductCard/> */}
+          </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -2,14 +2,12 @@
 
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
-import Header from "@/app/components/Header/Header";
-import Sidebar from "@/app/components/Sidebar/Sidebar";
-import Footer from "@/app/components/Footer/Footer";
+import Sidebar from "../../components/Sidebar/Sidebar";
 import Link from "next/link";
-import CategoryCars from "@/app/components/Cars/CategoryCars";
-import ReviewsSection from "@/app/components/ReviewSection/ReviewSection";
-import RecentCars from "@/app/components/Cars/RecentCars";
-import cars from "@/app/cars";
+
+import ReviewsSection from "../../components/ReviewSection/ReviewSection";
+import RecentCars from "../../components/Cars/RecentCars";
+import cars from "../../cars";
 
 const CarDetail = () => {
   const pathname = usePathname();
@@ -34,7 +32,7 @@ const CarDetail = () => {
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
-      <Header />
+     
       <div className="flex flex-1 flex-col md:flex-row">
         <Sidebar />
         <div className="flex flex-col w-full px-4 sm:px-2">
@@ -82,7 +80,7 @@ const CarDetail = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="relative w-full md:w-[45%] bg-white shadow-md rounded-lg mx-auto p-4 h-[80%]">
+            <div className="relative w-full md:w-[45%] shadow-md rounded-lg mx-auto p-4 h-[80%]">
               <div className="p-3">
                 <Link
                   href={`/cars/${car.name.replace(/\s+/g, "-").toLowerCase()}`}
@@ -145,9 +143,11 @@ const CarDetail = () => {
                     </span>{" "}
                     days
                   </span>
+                  <Link href={'/rent/nissan-gt-r'}>
                   <button className="bg-[#3563E9] hover:bg-[#54A6FF] py-3 px-5 text-white text-lg rounded-md">
                     Rent Now
                   </button>
+                  </Link>
                 </div>
                 <span className="text-[#90A3BF] text-sm line-through">
                   {car.discount}
@@ -160,7 +160,7 @@ const CarDetail = () => {
           <RecentCars />
         </div>
       </div>
-      <Footer />
+     
     </div>
   );
 };

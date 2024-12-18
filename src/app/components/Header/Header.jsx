@@ -30,7 +30,7 @@ const Header = () => {
           </Link>
 
           {/* Search Field */}
-          <div className="relative w-full lg:w-[550px] md:w-[350px] ml-0 lg:ml-28 md:ml-10 flex items-center sm:mt-5">
+          <div className="relative w-full md:w-[350px] lg:w-[550px] ml-0 lg:ml-28 md:ml-10 flex items-center sm:mt-5">
             {/* Search Icon */}
             <div className="absolute top-0 left-5 flex items-center h-full text-gray-500">
               <Image
