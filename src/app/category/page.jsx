@@ -5,8 +5,10 @@ import PickUpDropOff from "../components/PickUpDropOff/PickUpDropOff";
 import CategoryCars from "../components/Cars/CategoryCars";
 import ProductCard from "../components/Products/ProductCard";
 
+// checking add comment 
 const CategoryCar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  let save = "save";
 
   return (
     <div className="min-h-screen flex flex-col">
